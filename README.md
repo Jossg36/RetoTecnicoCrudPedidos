@@ -295,28 +295,28 @@ OrderManagement/
 
 ## 📝 Testing
 
-### Backend Tests
+### Tests Backend
 ```powershell
 cd backend
 
-# Run all tests
+# Ejecutar todos los tests
 dotnet test
 
-# Run with coverage
+# Ejecutar con cobertura
 dotnet test /p:CollectCoverageFlag=true
 ```
 
-### Frontend Tests
+### Tests Frontend
 ```powershell
 cd frontend
 
-# Run tests
+# Ejecutar tests
 npm run test
 
-# Run tests with coverage
+# Ejecutar tests con cobertura
 npm run test:coverage
 
-# Run tests in watch mode
+# Ejecutar tests en modo watch
 npm run test:watch
 ```
 
@@ -324,36 +324,36 @@ npm run test:watch
 
 ## 🚀 Deployment
 
-### Backend Deployment
-1. Publish the application: `dotnet publish -c Release`
-2. Configure SQL Server on target environment
-3. Update connection string in `appsettings.json`
-4. Set environment variables for JWT secret
-5. Deploy to IIS, Azure App Service, or docker container
+### Deployment Backend
+1. Publicar la aplicación: `dotnet publish -c Release`
+2. Configurar SQL Server en el entorno destino
+3. Actualizar cadena de conexión en `appsettings.json`
+4. Establecer variables de entorno para secreto JWT
+5. Desplegar en IIS, Azure App Service o contenedor Docker
 
-### Frontend Deployment
-1. Build the application: `npm run build`
-2. Upload `dist` folder to static hosting (Netlify, Vercel, GitHub Pages)
-3. Or serve with any HTTP server configured for SPA routing
+### Deployment Frontend
+1. Compilar la aplicación: `npm run build`
+2. Subir carpeta `dist` a hosting estático (Netlify, Vercel, GitHub Pages)
+3. O servir con cualquier servidor HTTP configurado para SPA routing
 
 ---
 
-## 📊 Database Schema
+## 📊 Esquema de Base de Datos
 
-### Users Table
+### Tabla Users
 ```sql
 CREATE TABLE Users (
     Id INT PRIMARY KEY IDENTITY,
     Username NVARCHAR(50) UNIQUE NOT NULL,
     Email NVARCHAR(100) UNIQUE NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
-    Role NVARCHAR(20) DEFAULT 'User',
+    Role NVARCHAR(20) DEFAULT 'Usuario',
     IsActive BIT DEFAULT 1,
     CreatedAt DATETIME DEFAULT GETDATE()
 );
 ```
 
-### Orders Table
+### Tabla Orders
 ```sql
 CREATE TABLE Orders (
     Id INT PRIMARY KEY IDENTITY,
@@ -361,12 +361,12 @@ CREATE TABLE Orders (
     UserId INT FOREIGN KEY REFERENCES Users(Id),
     Fecha DATETIME DEFAULT GETDATE(),
     Total DECIMAL(10, 2) NOT NULL,
-    Estado NVARCHAR(50) DEFAULT 'Pending',
+    Estado NVARCHAR(50) DEFAULT 'Pendiente',
     Description NVARCHAR(MAX)
 );
 ```
 
-### OrderItems Table
+### Tabla OrderItems
 ```sql
 CREATE TABLE OrderItems (
     Id INT PRIMARY KEY IDENTITY,
@@ -380,37 +380,37 @@ CREATE TABLE OrderItems (
 
 ---
 
-## 🐛 Troubleshooting
+## 🐛 Solución de Problemas
 
-### Backend Issues
+### Problemas Backend
 
-**Problem:** Port 5000 already in use
+**Problema:** Puerto 5000 ya está en uso
 ```powershell
-# Kill process on port 5000
+# Terminar proceso en puerto 5000
 Get-Process | Where-Object {$_.Id -eq (Get-NetTCPConnection -LocalPort 5000).OwningProcess} | Stop-Process
 ```
 
-**Problem:** Database connection failed
+**Problema:** Conexión a base de datos fallida
 ```powershell
-# Verify SQL Server is running
+# Verificar que SQL Server está ejecutándose
 sqlcmd -S localhost\SQLEXPRESS -Q "SELECT @@VERSION"
 ```
 
-**Problem:** JWT token invalid
-- Ensure token is fresh (not expired)
-- Check Authorization header format: `Bearer {token}`
-- Verify JWT secret is configured correctly
+**Problema:** Token JWT inválido
+- Asegurarse de que el token es reciente (no expirado)
+- Verificar formato del encabezado de autorización: `Bearer {token}`
+- Verificar que el secreto JWT está configurado correctamente
 
-### Frontend Issues
+### Problemas Frontend
 
-**Problem:** Cannot connect to backend
-- Verify backend is running on port 5000
-- Check CORS configuration in Program.cs
-- Ensure API_BASE_URL is correct in .env
+**Problema:** No se puede conectar a backend
+- Verificar que backend se está ejecutando en puerto 5000
+- Verificar configuración de CORS en Program.cs
+- Asegurarse de que API_BASE_URL es correcto
 
-**Problem:** Vite build errors
+**Problema:** Errores de compilación con Vite
 ```powershell
-# Clear cache and reinstall
+# Limpiar caché y reinstalar
 npm cache clean --force
 rm -r node_modules
 npm install
@@ -419,34 +419,34 @@ npm run dev
 
 ---
 
-## 📞 Support & Contact
+## 📞 Soporte
 
-For issues, questions, or contributions:
-1. Check existing documentation in `/backend/README.md` and `/frontend/README.md`
-2. Review error messages and logs
-3. Check database migrations status
-4. Verify environment configuration
-
----
-
-## 📄 License
-
-This project is provided as-is for educational and professional purposes.
+Para problemas, preguntas o contribuciones:
+1. Consulta la documentación existente en `/backend/README.md` y `/frontend/README.md`
+2. Revisa los mensajes de error y logs
+3. Verifica el estado de migraciones de base de datos
+4. Verifica la configuración del entorno
 
 ---
 
-## ✨ Features Highlights
+## 📄 Licencia
 
-- 🔐 **Enterprise Security:** JWT + Role-based access control
-- 📊 **Clean Architecture:** Domain-driven design principles
-- 🧪 **Comprehensive Testing:** Unit and integration tests
-- 📚 **Well Documented:** Extensive inline comments and README files
-- 🎨 **Modern UI:** Responsive design with professional styling
-- ⚡ **Performance:** Optimized queries and efficient state management
-- 🔄 **Resiliance:** Retry mechanisms and error handling
-- 📱 **Responsive:** Works on desktop, tablet, and mobile devices
+Este proyecto se proporciona tal cual para propósitos educativos y profesionales.
 
 ---
 
-**Last Updated:** February 23, 2026
+## ✨ Características Destacadas
+
+- 🔐 **Seguridad Empresarial:** JWT + Control de acceso basado en roles
+- 📊 **Arquitectura Limpia:** Principios de diseño dirigido por dominio
+- 🧪 **Testing Comprehensivo:** Tests unitarios e integración
+- 📚 **Bien Documentado:** Comentarios extensos y archivos README
+- 🎨 **UI Moderna:** Diseño responsivo con estilos profesionales
+- ⚡ **Rendimiento:** Consultas optimizadas y gestión de estado eficiente
+- 🔄 **Resiliencia:** Mecanismos de reintentos y manejo de errores
+- 📱 **Responsivo:** Funciona en escritorio, tablet y dispositivos móviles
+
+---
+
+**Última Actualización:** 23 de febrero de 2026
 
