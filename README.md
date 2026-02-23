@@ -1,131 +1,131 @@
-# 🚀 Order Management System - Fullstack Senior
+# 🚀 Sistema de Gestión de Pedidos - Fullstack Senior
 
-**Professional fullstack solution for order management with JWT authentication, clean architecture, and enterprise security**
+**Solución Fullstack profesional para gestión de pedidos con autenticación JWT, arquitectura limpia y seguridad empresarial**
 
-## 📋 Overview
+## 📋 Descripción General
 
-Modern fullstack application providing complete order management capabilities:
+Aplicación Fullstack moderna que proporciona capacidades completas de gestión de pedidos:
 
-- ✅ Secure user registration and authentication with JWT Bearer tokens
-- ✅ Complete order CRUD operations (Create, Read, Update, Delete)
-- ✅ Order items management within each order
-- ✅ Order status management (Pending → Delivered)
-- ✅ Role-based access control (Admin, User)
-- ✅ Clean architecture with separation of concerns
-- ✅ Resilience patterns and automatic retry mechanisms
-- ✅ Robust validation and structured logging
-- ✅ Professional UI with React + TypeScript
-- ✅ Responsive design and modern styling
+- ✅ Registro e inicio de sesión seguro con JWT Bearer tokens
+- ✅ Operaciones CRUD completas de pedidos (Crear, Leer, Actualizar, Eliminar)
+- ✅ Gestión de artículos dentro de cada pedido
+- ✅ Gestión del estado de pedidos (Pendiente → Entregado)
+- ✅ Control de acceso basado en roles (Admin, Usuario)
+- ✅ Arquitectura limpia con separación de responsabilidades
+- ✅ Patrones de resiliencia y mecanismos de reintentos automáticos
+- ✅ Validación robusta y logging estructurado
+- ✅ UI profesional con React + TypeScript
+- ✅ Diseño responsivo y estilos modernos
 
 ---
 
-## 🏗️ Technology Stack
+## 🏗️ Stack Tecnológico
 
 ### Backend
 - **Framework:** ASP.NET Core 8.0
 - **ORM:** Entity Framework Core 8.0
-- **Database:** SQL Server Express (localhost\SQLEXPRESS)
-- **Authentication:** JWT Bearer Tokens (60-minute expiration)
-- **Validation:** FluentValidation
-- **Mapping:** AutoMapper
+- **Base de Datos:** SQL Server Express (localhost\SQLEXPRESS)
+- **Autenticación:** JWT Bearer Tokens (expiración 60 minutos)
+- **Validación:** FluentValidation
+- **Mapeo:** AutoMapper
 - **Logging:** Serilog
-- **Architecture:** Clean Architecture with SOLID principles
-- **API Documentation:** Swagger/OpenAPI
+- **Arquitectura:** Clean Architecture con principios SOLID
+- **Documentación API:** Swagger/OpenAPI
 
 ### Frontend
 - **Framework:** React 18+
-- **Language:** TypeScript 5+
+- **Lenguaje:** TypeScript 5+
 - **Bundler:** Vite 5.4+
-- **HTTP Client:** Axios
+- **Cliente HTTP:** Axios
 - **Routing:** React Router v6
-- **Styling:** CSS3 with modern components
+- **Estilos:** CSS3 con componentes modernos
 - **Testing:** Vitest + React Testing Library
 
-### Database
-- **Server:** SQL Server Express (localhost\SQLEXPRESS)
-- **Database Name:** OrderManagementDB
-- **Tables:** Users, Orders, OrderItems
-- **Automatic:** Migrations applied on first run
+### Base de Datos
+- **Servidor:** SQL Server Express (localhost\SQLEXPRESS)
+- **Nombre BD:** OrderManagementDB
+- **Tablas:** Users, Orders, OrderItems
+- **Automática:** Migraciones aplicadas en la primera ejecución
 
 ---
 
-## ⚡ Quick Start (5 minutes)
+## ⚡ Inicio Rápido (5 minutos)
 
-### Prerequisites
-- .NET 8.0 SDK installed
-- Node.js 18+ and npm installed
-- SQL Server Express installed locally
-- Git installed
+### Requisitos Previos
+- SDK de .NET 8.0 instalado
+- Node.js 18+ y npm instalados
+- SQL Server Express instalado localmente
+- Git instalado
 
-### 🚀 Backend Setup
+### 🚀 Configuración Backend
 
 ```powershell
-# Navigate to backend folder
+# Navegar a la carpeta backend
 cd backend
 
-# Restore NuGet packages
+# Restaurar paquetes NuGet
 dotnet restore
 
-# Build the project
+# Compilar el proyecto
 dotnet build
 
-# Run the application
+# Ejecutar la aplicación
 dotnet run --project OrderManagementAPI.Api
 
-# ✅ Backend running on: http://localhost:5000
+# ✅ Backend ejecutándose en: http://localhost:5000
 # 📚 Swagger UI: http://localhost:5000/swagger
 ```
 
-### 🚀 Frontend Setup
+### 🚀 Configuración Frontend
 
 ```powershell
-# Navigate to frontend folder (in a new terminal)
+# Navegar a la carpeta frontend (en una nueva terminal)
 cd frontend
 
-# Install npm packages
+# Instalar paquetes npm
 npm install
 
-# Start development server
+# Iniciar servidor de desarrollo
 npm run dev
 
-# ✅ Frontend running on: http://localhost:3000
+# ✅ Frontend ejecutándose en: http://localhost:3000
 ```
 
-### 🔐 Default Admin Credentials
+### 🔐 Credenciales de Admin Predeterminadas
 
 ```
-Username: admin
-Password: Admin@123
-Role:     Administrator
+Usuario:    admin
+Contraseña: Admin@123
+Rol:        Administrador
 ```
 
 ---
 
-## 📚 API Documentation
+## 📚 Documentación de API
 
-### Authentication Endpoints
+### Endpoints de Autenticación
 
-#### Register New User
+#### Registrar Nuevo Usuario
 ```http
 POST /api/auth/register
 Content-Type: application/json
 
 {
-  "username": "john.doe",
-  "email": "john@example.com",
+  "username": "juan.perez",
+  "email": "juan@example.com",
   "password": "SecurePass123!"
 }
 
-Response:
+Respuesta:
 {
   "success": true,
-  "message": "User registered successfully",
+  "message": "Usuario registrado exitosamente",
   "token": "eyJhbGciOiJIUzI1NiIs...",
   "user": {
     "id": 2,
-    "username": "john.doe",
-    "email": "john@example.com",
-    "role": "User"
+    "username": "juan.perez",
+    "email": "juan@example.com",
+    "role": "Usuario"
   }
 }
 ```
@@ -136,39 +136,39 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
-  "username": "john.doe",
+  "username": "juan.perez",
   "password": "SecurePass123!"
 }
 
-Response: Same as register
+Respuesta: Igual que registrar
 ```
 
-### Order Management Endpoints
+### Endpoints de Gestión de Pedidos
 
-#### Get User's Orders
+#### Obtener Pedidos del Usuario
 ```http
 GET /api/orders
 Authorization: Bearer {token}
 
-Response:
+Respuesta:
 {
   "success": true,
   "data": [
     {
       "id": 1,
       "numeroPedido": "PED001",
-      "cliente": "John Doe",
+      "cliente": "Juan Perez",
       "fecha": "2026-02-23",
       "total": 150.50,
-      "estado": "Pending",
-      "description": "Order description",
+      "estado": "Pendiente",
+      "description": "Descripción del pedido",
       "items": [...]
     }
   ]
 }
 ```
 
-#### Create Order
+#### Crear Pedido
 ```http
 POST /api/orders
 Authorization: Bearer {token}
@@ -176,20 +176,20 @@ Content-Type: application/json
 
 {
   "numeroPedido": "PED001",
-  "description": "Order description",
+  "description": "Descripción del pedido",
   "items": [
     {
-      "productName": "Product 1",
+      "productName": "Producto 1",
       "quantity": 2,
       "unitPrice": 50.00
     }
   ]
 }
 
-Response: Created order with ID
+Respuesta: Pedido creado con ID
 ```
 
-#### Update Order
+#### Actualizar Pedido
 ```http
 PUT /api/orders/{id}
 Authorization: Bearer {token}
@@ -197,13 +197,13 @@ Content-Type: application/json
 
 {
   "numeroPedido": "PED001",
-  "estado": "Delivered",
-  "description": "Updated description",
+  "estado": "Entregado",
+  "description": "Descripción actualizada",
   "items": [...]
 }
 ```
 
-#### Delete Order
+#### Eliminar Pedido
 ```http
 DELETE /api/orders/{id}
 Authorization: Bearer {token}
@@ -211,85 +211,85 @@ Authorization: Bearer {token}
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Estructura del Proyecto
 
 ```
 OrderManagement/
 ├── backend/
 │   ├── OrderManagementAPI.Api/
-│   │   ├── Controllers/          # API endpoints
-│   │   ├── Middleware/           # Custom middleware
-│   │   ├── Authorization/        # Auth attributes
-│   │   ├── Extensions/           # Dependency injection
-│   │   └── Program.cs            # Application setup
+│   │   ├── Controllers/          # Endpoints de API
+│   │   ├── Middleware/           # Middleware personalizado
+│   │   ├── Authorization/        # Atributos de autorización
+│   │   ├── Extensions/           # Inyección de dependencias
+│   │   └── Program.cs            # Configuración de aplicación
 │   ├── OrderManagementAPI.Application/
-│   │   ├── Services/             # Business logic
-│   │   ├── DTOs/                 # Data transfer objects
-│   │   ├── Validators/           # Validation rules
-│   │   └── Interfaces/           # Service contracts
+│   │   ├── Services/             # Lógica de negocio
+│   │   ├── DTOs/                 # Objetos de transferencia de datos
+│   │   ├── Validators/           # Reglas de validación
+│   │   └── Interfaces/           # Contratos de servicios
 │   ├── OrderManagementAPI.Domain/
-│   │   ├── Entities/             # Domain models
-│   │   └── Interfaces/           # Repository contracts
+│   │   ├── Entities/             # Modelos de dominio
+│   │   └── Interfaces/           # Contratos de repositorio
 │   ├── OrderManagementAPI.Infrastructure/
-│   │   ├── Data/                 # Database context
-│   │   ├── Services/             # Infrastructure services
-│   │   ├── Security/             # Password hashing
-│   │   └── Migrations/           # Database migrations
+│   │   ├── Data/                 # Contexto de base de datos
+│   │   ├── Services/             # Servicios de infraestructura
+│   │   ├── Security/             # Hash de contraseñas
+│   │   └── Migrations/           # Migraciones de BD
 │   └── OrderManagementAPI.Tests/
-│       ├── Services/             # Service tests
-│       └── Security/             # Security tests
+│       ├── Services/             # Tests de servicios
+│       └── Security/             # Tests de seguridad
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/           # React components
-│   │   ├── pages/                # Page components
-│   │   ├── services/             # API services
-│   │   ├── contexts/             # React contexts
-│   │   ├── types/                # TypeScript types
-│   │   ├── styles/               # CSS files
-│   │   └── App.tsx               # Main app component
-│   ├── public/                   # Static assets
-│   ├── index.html                # HTML entry point
-│   └── vite.config.ts            # Vite configuration
+│   │   ├── components/           # Componentes React
+│   │   ├── pages/                # Componentes de página
+│   │   ├── services/             # Servicios de API
+│   │   ├── contexts/             # Contextos de React
+│   │   ├── types/                # Tipos TypeScript
+│   │   ├── styles/               # Archivos CSS
+│   │   └── App.tsx               # Componente principal
+│   ├── public/                   # Assets estáticos
+│   ├── index.html                # Punto de entrada HTML
+│   └── vite.config.ts            # Configuración de Vite
 │
-└── README.md                      # This file
+└── README.md                      # Este archivo
 ```
 
 ---
 
-## 🔑 Key Features
+## 🔑 Características Principales
 
-### Authentication & Authorization
-- JWT Bearer token-based authentication
-- Automatic token expiration (60 minutes)
-- Secure password hashing with bcrypt
-- Role-based access control
+### Autenticación y Autorización
+- Autenticación basada en JWT Bearer tokens
+- Expiración automática de tokens (60 minutos)
+- Hash seguro de contraseñas con bcrypt
+- Control de acceso basado en roles
 
-### Order Management
-- Create, read, update, and delete orders
-- Track order status (Pending, Delivered)
-- Manage order items with pricing
-- Order number generation
-- User-specific order isolation
+### Gestión de Pedidos
+- Crear, leer, actualizar y eliminar pedidos
+- Seguimiento del estado del pedido (Pendiente, Entregado)
+- Gestión de artículos de pedido con precios
+- Generación de números de pedido
+- Aislamiento de pedidos por usuario
 
-### Data Validation
-- FluentValidation rules on backend
-- Real-time validation on frontend
-- Comprehensive error messages
-- Request/response validation
+### Validación de Datos
+- Reglas FluentValidation en backend
+- Validación en tiempo real en frontend
+- Mensajes de error comprehensivos
+- Validación de solicitud/respuesta
 
-### Error Handling
-- Global exception middleware
-- Structured error responses
-- Detailed logging with Serilog
-- User-friendly error messages
+### Manejo de Errores
+- Middleware global de excepciones
+- Respuestas de error estructuradas
+- Logging detallado con Serilog
+- Mensajes de error amigables para el usuario
 
-### Security
-- CORS configuration for localhost:3000
-- HTTPS ready (development: HTTP)
-- SQL injection prevention (parameterized queries)
-- XSS protection (content sanitization)
-- CSRF token support ready
+### Seguridad
+- Configuración de CORS para localhost:3000
+- Lista para HTTPS (desarrollo: HTTP)
+- Prevención de inyección SQL (consultas parametrizadas)
+- Protección contra XSS (sanitización de contenido)
+- Soporte para tokens CSRF
 
 ---
 
