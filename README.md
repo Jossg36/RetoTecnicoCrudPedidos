@@ -101,7 +101,160 @@ Rol:        Administrador
 
 ---
 
-## 📚 Documentación de API
+## � Guía Detallada de Ejecución
+
+### Opción 1: Ejecución Manual (Recomendado para Desarrollo)
+
+#### Paso 1: Preparar la Base de Datos
+```powershell
+# Verificar que SQL Server Express está ejecutándose
+sqlcmd -S localhost\SQLEXPRESS -Q "SELECT @@VERSION"
+
+# Si no existe la base de datos, se creará automáticamente
+```
+
+#### Paso 2: Ejecutar Backend (Terminal 1)
+```powershell
+# Navegar a la carpeta del proyecto
+cd "c:\ruta\al\proyecto"
+
+# Ir a la carpeta backend
+cd backend
+
+# Restaurar dependencias
+dotnet restore
+
+# Compilar el proyecto
+dotnet clean
+dotnet build
+
+# Ejecutar la aplicación
+dotnet run --project OrderManagementAPI.Api
+
+# Esperado: "Application started" en la consola
+# Backend disponible en: http://localhost:5000
+# Swagger UI: http://localhost:5000/swagger
+```
+
+#### Paso 3: Ejecutar Frontend (Terminal 2)
+```powershell
+# En una NUEVA terminal de PowerShell/CMD
+
+# Navegar al proyecto
+cd "c:\ruta\al\proyecto"
+
+# Ir a la carpeta frontend
+cd frontend
+
+# Instalar dependencias (solo la primera vez)
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Esperado: "VITE v5.x.x ready in XXX ms"
+# Frontend disponible en: http://localhost:3000
+```
+
+#### Paso 4: Acceder a la Aplicación
+```
+1. Abre tu navegador en: http://localhost:3000
+2. Usa las credenciales de admin:
+   - Usuario: admin
+   - Contraseña: Admin@123
+3. ¡Listo! Puedes navegar y usar la aplicación
+```
+
+---
+
+### Opción 2: Ejecución Usando Scripts PowerShell
+
+Se incluyen scripts para automatizar la ejecución complete:
+
+```powershell
+# Script para ejecutar todo automáticamente
+.\RUN_TESTS.ps1
+
+# O ejecutar manualmente:
+# Script para tests del backend
+.\Scripts\test-backend.ps1
+
+# Script para tests del frontend
+.\Scripts\test-frontend.ps1
+```
+
+---
+
+### Opción 3: Detener la Aplicación
+
+Si necesitas detener los servidores:
+
+```powershell
+# Matar procesos de .NET
+Get-Process -Name dotnet -ErrorAction SilentlyContinue | Stop-Process -Force
+
+# Matar procesos de Node.js
+Get-Process -Name node -ErrorAction SilentlyContinue | Stop-Process -Force
+
+# Verificar que se detuvo
+Get-Process -Name dotnet, node -ErrorAction SilentlyContinue
+```
+
+---
+
+### Verificación de Puertos
+
+Asegúrate de que los puertos requeridos estén disponibles:
+
+```powershell
+# Verificar puerto 5000 (Backend)
+Test-NetConnection -ComputerName localhost -Port 5000
+
+# Verificar puerto 3000 (Frontend)
+Test-NetConnection -ComputerName localhost -Port 3000
+
+# Si están ocupados, libéralos:
+Get-NetTCPConnection -LocalPort 5000 | Select-Object -First 1 | ForEach-Object {
+    Get-Process -Id $_.OwningProcess | Stop-Process -Force
+}
+```
+
+---
+
+### Verificación de Requisitos
+
+Antes de ejecutar, verifica que tienes todo instalado:
+
+```powershell
+# Verificar .NET SDK 8.0
+dotnet --version
+
+# Verificar Node.js
+node --version
+
+# Verificar npm
+npm --version
+
+# Verificar SQL Server Express
+sqlcmd -S localhost\SQLEXPRESS -Q "SELECT @@VERSION"
+```
+
+---
+
+### Solución Rápida de Problemas Comunes
+
+| Problema | Solución |
+|----------|----------|
+| **Port 5000 en uso** | `Get-NetTCPConnection -LocalPort 5000 \| ForEach {Stop-Process -Id $_.OwningProcess}` |
+| **Port 3000 en uso** | `Get-NetTCPConnection -LocalPort 3000 \| ForEach {Stop-Process -Id $_.OwningProcess}` |
+| **Error de BD** | Reinicia SQL Server o ejecuta: `sqlcmd -S localhost\SQLEXPRESS -Q "DROP DATABASE OrderManagementDB"` |
+| **Frontend no compila** | Borra caché: `rm .vite dist -r; npm install; npm run dev` |
+| **Error CORS** | Verifica que frontend está en puerto 3000 |
+| **Token expirado** | Login nuevamente, tokens duran 60 minutos |
+
+---
+
+## �📚 Documentación de API
 
 ### Endpoints de Autenticación
 
