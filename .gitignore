@@ -1,0 +1,202 @@
+# ============================================
+# EDITORS & IDE
+# ============================================
+.vscode/
+.vs/
+.idea/
+*.sln.iml
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# .NET / BACKEND
+# ============================================
+# Build results
+bin/
+obj/
+dist/
+build/
+backend/bin/
+backend/obj/
+backend/.vs/
+backend/Properties/launchSettings.json
+
+# NuGet
+*.nupkg
+*.snupkg
+NugetPackages/
+packages/
+.nuget/
+
+# Dependencies
+*.lock.json
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+*.mdf.bak
+LocalDB/
+Data/
+*.db-shm
+*.db-wal
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ============================================
+# NODE / FRONTEND
+# ============================================
+# Dependencies
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-error.log
+yarn-debug.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Production
+frontend/dist/
+frontend/build/
+frontend/.vite/
+frontend/coverage/
+
+# Development
+.vite/
+vite.config.ts.bak
+
+# ============================================
+# ENVIRONMENT & SECRETS
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.*.env
+
+# Secrets
+*.key
+*.pem
+*.pfx
+*.p12
+certificates/
+secrets/
+private/
+
+# ============================================
+# LOGS & TEMP FILES
+# ============================================
+logs/
+log/
+*.log
+Logs/
+logs/**
+*.log.*
+
+# Runtime data
+pids/
+*.pid
+*.pid.lock
+*.seed
+*.seed.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.bak.*
+.cache/
+
+# ============================================
+# TEST & COVERAGE
+# ============================================
+coverage/
+lcov-report/
+.nyc_output/
+test-results/
+.coverage
+htmlcov/
+
+# ============================================
+# OS & MISC
+# ============================================
+*.orig
+*.rej
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Miscellaneous
+.turbo/
+dist-ssr/
+*.local
+
+# ============================================
+# VSCODE EXTENSIONS
+# ============================================
+.vscode/settings.json
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# ============================================
+# IDE SPECIFIC
+# ============================================
+.classpath
+.project
+.c9/
+*.launch
+.settings/
+.loadpath
+
+# ============================================
+# VISUAL STUDIO CODE
+# ============================================
+.history/
+*.code-workspace
+
+# Visual Studio Code
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# macOS
+.AppleDouble
+.AppleDB
+*.swp
+.#*
+
+# Windows
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Rider
+.idea/
+*.sln.iml
+*.swp
+
+# User-specific files
+LaunchSettings.json
