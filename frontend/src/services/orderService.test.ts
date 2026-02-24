@@ -100,32 +100,30 @@ describe('orderService', () => {
     it('should preserve order properties during CRUD', () => {
       const order: Order = {
         id: 1,
-        userId: 1,
-        orderNumber: 'ORD-2026-001',
-        status: 0,
+        numeroPedido: 'ORD-2026-001',
+        cliente: 'John Doe',
+        fecha: new Date().toISOString(),
+        total: 150.00,
+        estado: 'Pending',
         description: 'Test order',
-        totalAmount: 150.00,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
         items: [],
       };
 
       expect(order.id).toBe(1);
-      expect(order.orderNumber).toBe('ORD-2026-001');
+      expect(order.numeroPedido).toBe('ORD-2026-001');
       expect(order.description).toBe('Test order');
-      expect(order.totalAmount).toBe(150.00);
+      expect(order.total).toBe(150.00);
     });
 
     it('should maintain item integrity in order', () => {
       const order: Order = {
         id: 1,
-        userId: 1,
-        orderNumber: 'ORD-001',
-        status: 0,
+        numeroPedido: 'ORD-001',
+        cliente: 'Jane Smith',
+        fecha: new Date().toISOString(),
+        total: 100,
+        estado: 'Confirmed',
         description: 'Test',
-        totalAmount: 100,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
         items: [
           { id: 1, productName: 'Product A', quantity: 1, unitPrice: 100, totalPrice: 100 },
         ],

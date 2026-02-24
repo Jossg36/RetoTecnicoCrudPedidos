@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { User, AuthResponse, LoginRequest, RegisterRequest } from '@/types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://localhost:5001/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 class AuthService {
   private apiClient: AxiosInstance;

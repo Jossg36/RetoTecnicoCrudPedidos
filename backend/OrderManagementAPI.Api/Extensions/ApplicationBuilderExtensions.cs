@@ -37,17 +37,20 @@ public static class ApplicationBuilderExtensions
             });
         }
 
-        // HTTPS redirect
-        app.UseHttpsRedirection();
+        // CORS - DEBE ir antes de UseHttpsRedirection
+        app.UseCors("AllowReactApp");
+
+        // HTTPS redirect (solo en producción)
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseHttpsRedirection();
+        }
 
         // Request logging
         app.UseRequestLogging();
 
         // Global exception handling
         app.UseGlobalExceptionHandler();
-
-        // CORS
-        app.UseCors("AllowReactApp");
 
         // Authentication and Authorization
         app.UseAuthentication();

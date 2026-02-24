@@ -2,7 +2,7 @@ import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosE
 import { Order, CreateOrderRequest, UpdateOrderRequest } from '@/types';
 import authService from './authService';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://localhost:5001/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 class OrderService {
   private apiClient: AxiosInstance;
