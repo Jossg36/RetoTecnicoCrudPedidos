@@ -70,6 +70,11 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+# Generated JavaScript from TypeScript
+frontend/src/**/*.js
+frontend/src/**/*.js.map
+!frontend/src/**/*.test.js
+
 # Production
 frontend/dist/
 frontend/build/
